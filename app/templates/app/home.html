@@ -1,0 +1,585 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block banner_slider %}
+<!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/banner1.png' %}" class="d-block w-100" alt="slide 1" height="400" width="40">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/banner2.png' %}" class="d-block w-100" alt="slide 2" height="400" width="40">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="slide 3" height="400" width="40">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="slide 4" height="400" width="40" >
+    </div>
+  </div>
+  <button>
+  	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  
+  
+</div> -->
+<script>var responsiveSlider = function() {
+
+var slider = document.getElementById("slider");
+var slideList = document.getElementById("slideWrap");
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+
+var count = 1;
+var sliderWidth = slider.offsetWidth;
+var items = slideList.querySelectorAll("span").length;
+
+
+window.addEventListener('resize', function() {
+  sliderWidth = slider.offsetWidth;
+});
+
+
+var nextSlide = function() {
+  if(count < items) {
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+  else if(count = items) {
+    slideList.style.left = "0px";
+    count = 1;
+  }
+};
+
+
+var prevSlide = function() {
+  if(count > 1) {
+    count = count - 2;
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+  else if(count = 1) {
+    count = items - 1;
+    slideList.style.left = "-" + count * sliderWidth + "px";
+    count++;
+  }
+};
+
+
+next.addEventListener("click", function() {
+  nextSlide();
+});
+
+prev.addEventListener("click", function() {
+  prevSlide();
+});
+
+
+setInterval(function() {
+  nextSlide()
+}, 5000);
+
+};
+
+window.onload = function() {
+  responsiveSlider();
+  }</script>
+<style>
+
+    @media (max-width: 1480px) {
+
+    .boxpr {
+    display: none;}}
+    
+    :root {
+        --bg: #d00435;
+        --f: black;
+
+        --bgtb: white;
+        --ftb: black;
+        --border-hd: #f3f3f3;
+
+
+        --bgbox: white;
+        --fbox: black;
+
+
+        --bgbt: white;
+        --fbt: black;
+        --bgs: 0px 10px 10px 0px #e7e7e7;
+
+        --hv: black;
+        --nhv: #545454;
+
+        --bgmenu: red;
+        --fmenu: white;
+        --bgmn: white;
+        --fgia: red;
+        --bgf: white;
+        --bglg: linear-gradient(303deg, rgb(252 255 243) 0%, rgb(202 255 244) 50%, rgb(223 255 216) 100%);
+        --bguser: white;
+        --bgmain: white;
+        --fsale: #ff003d;
+    }
+
+    :root.dark {
+        --bg: black;
+        --f: white;
+
+        --bgtb: #0e0e0e;
+        --ftb: white;
+        --border-hd: #FFD585;
+
+
+        --bgbox: #0e0e0e;
+        --fbox: white;
+
+
+        --bgbt: linear-gradient(140deg, rgb(0 0 0) 0%, rgba(20, 20, 20, 1) 50%, rgb(0 0 0) 100%);
+        --fbt: white;
+        --bgs: 0px 10px 10px 0px black;
+
+        --hv: #efb342;
+        --nhv: #ffffff;
+
+        --bgmenu: linear-gradient(303deg, rgb(255 197 89) 0%, rgb(222 159 40) 50%, rgb(255 198 90) 100%);
+        --fmenu: white;
+        --bgmn: linear-gradient(303deg, rgb(40 26 0) 0%, rgb(0 0 0) 50%, rgb(37 0 53) 100%);
+        --fgia: #ffd380;
+        --bgf: #ffd380;
+        --bglg: linear-gradient(303deg, rgb(134 92 15) 0%, rgb(255 105 105) 50%, rgb(255 185 87) 100%);
+        --bguser: linear-gradient(303deg, rgb(37 37 37) 0%, rgb(29 29 29) 50%, rgb(27 27 27) 100%);
+        --bgmain: linear-gradient(303deg, rgb(37 37 37) 0%, rgb(29 29 29) 50%, rgb(27 27 27) 100%);
+        --fsale: #ffa700;
+
+
+    }
+</style>
+<style>
+  .br {
+    display: flex;
+    justify-content: center;
+  }
+
+  .br span {
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    color: var(--bor);
+    font-family: 'Lexend Deca', sans-serif;
+
+  }
+
+  .anh {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .bimgq {
+    width: 80%;
+    border-radius: 5px;
+    height: auto;
+    overflow: hidden;
+  }
+
+  #slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+
+  #slider ul {
+    display: flex;
+    position: relative;
+    list-style: none;
+    width: 1000%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    transition: all .4s ease;
+  }
+
+  .t {
+    width: calc(100% - 90%);
+  }
+
+  #slider ul span {
+    position: relative;
+    height: 100%;
+    float: left;
+  }
+
+  #slider ul span img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  #slider #prev {
+    width: 40px;
+    line-height: 40px;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 150ms ease;
+    opacity: 100%;
+    left: 0px;
+  }
+
+  #slider #next {
+    width: 40px;
+    line-height: 40px;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 150ms ease;
+    opacity: 100%;
+    right: 0px;
+  }
+  .btds {
+    width: 19%;
+    margin-right: 1%;
+    overflow: hidden;
+
+  }
+  .av i {
+    padding-right: 20px;
+    height: 60px;
+  }
+</style>
+<style>
+  .sphot::-webkit-scrollbar {
+      width: 3px;
+  }
+
+  .sphot::-webkit-scrollbar-track {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: black;
+  }
+
+  .sphot::-webkit-scrollbar-thumb {
+      background: linear-gradient(303deg, rgb(0 0 0) 0%, rgb(82 38 255) 50%, rgb(0 0 0) 100%);
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+  }
+
+  .sphot {
+      height: 100%;
+      
+      background: #222222;
+      border-radius: 5px;
+      overflow-y: scroll;
+      
+
+  }
+
+  #hot::-webkit-scrollbar {
+      display: hidden;
+  }
+
+  .sphot a {
+      text-decoration: none;
+  }
+
+
+  .av {
+      display: flex;
+      align-items: center;
+      height: 6%;
+      padding-left: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--f);
+
+  }
+
+  .vr {
+      background: var(--bgmenu);
+      color: var(--fmenu);
+  }
+</style>
+<style>
+    .box {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .kt {
+        width: 1200px;
+    }
+
+    body {
+        height: 100%;
+        background: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sss {
+        color: var(--f);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        height: 30px;
+        width: 30px;
+        text-decoration: none;
+    }
+
+    .spt {
+        font-size: 25px;
+        font-weight: 600;
+        padding: 1%;
+        font-family: 'Lexend Deca', sans-serif;
+    }
+
+    .spn {
+        font-size: 15px;
+        font-family: 'Roboto', sans-serif;
+        margin: 1%;
+        color: var(--nhv);
+    }
+
+    .page {
+        display: flex;
+        justify-content: center;
+        padding: 30px;
+    }
+
+    .flv {
+        display: flex;
+        flex-wrap: wrap;
+        background: var(--bgbox);
+        color: var(--fbox);
+    }
+
+
+    .cardpl {
+        font-size: 13px;
+        font-family: 'Lexend Deca', sans-serif;
+        padding-top: 5px;
+    }
+
+    .cardname {
+        font-size: 17px;
+        font-weight: 600;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .boxcard {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 1%;
+        border-radius: 5px;
+        overflow: hidden;
+        background: var(--bgbt);
+        box-shadow: var(--bgs);
+    
+    }
+
+    .card a {
+        text-decoration: none;
+        color: var(--fbt);
+
+    }
+
+    .cardtop {
+        object-fit: cover;
+        overflow: hidden;
+        height: 250px;
+    }
+
+    .imgv {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .cardmain {
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cardbot {
+        margin-top: auto;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        color: red;
+    }
+
+    .giamoi {
+        color: var(--fgia);
+        font-size: 23px;
+        font-weight: 700;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .giacu {
+        color: #828282;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        text-decoration: line-through;
+    }
+    
+</style>
+
+<div class="box s">
+  <div class="kt">
+    <div class="anh">
+      <div class="btds">
+        <div class="sphot" id="hot">
+          <div class="ad"><i class="fa-sharp fa-solid fa-bars"></i>
+            Lịch phát sóng 
+          </div>
+          
+          {% comment %} {% for i in categories %}
+          
+          <div class="ad"> 
+            <a class="dropdown-item" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a>
+          </div>
+          {% endfor %} {% endcomment %}
+          <button data-product="1" data-action="add" class="btn btn-danger text-uppercase mr-2 px-4 add-btn update-cart">Đang phát </button>
+          <div class="ad">
+            18:00  Phim về nhà đi con tập 5
+          </div>
+          <div class="ad">
+            19:00  Phim phóng sự 
+          </div>
+          <div class="ad">
+            20:00  Sự tích sọ dừa 
+          </div>
+          <div class="ad">
+            21:00  Phim Thái Lan: Hạnh phúc tập 20
+          </div>
+          <div class="ad">
+            22:00  Bản tin cuối ngày
+          </div>
+        
+        </div>
+      </div>
+      <div class="bimgq">
+        <div id="slider">
+          {% comment %} <ul id="slideWrap" style="left: -3355px;"> {% endcomment %}
+            <div class="t">
+              <span>
+                <a href="{% url 'thongtin' %}">
+                  {% comment %} <img src="{% static 'app/images/banner/banner_p1.png' %}" alt="slide1" > {% endcomment %}
+                  <iframe width="960" height="525" src="https://www.youtube.com/embed/9C_1boa3UvM" frameborder="0" allowfullscreen></iframe>
+
+                </a>
+              </span>
+            </div>
+
+            {% comment %} <div class="t">
+              <span>
+                <a href="{% url 'category' %}?category=vivo">
+                  <img src="{% static 'app/images/banner/banner2_2.png' %}" alt="slide2" >
+                </a>
+              </span>
+            </div>
+
+            <div class="t">
+              <span>
+                <a href="{% url 'category' %}?category=iphone">
+                  <img src="{% static 'app/images/banner/banner3_3.jpg' %}" alt="slide3" >
+                </a>
+              </span>
+            </div>
+
+            <div class="t">
+              <span>
+                <a href="{% url 'category' %}?category=samsung">   
+                  <img src="{% static 'app/images/banner/banner4.jpg' %}" alt="slide4" >
+                </a>
+              </span>
+            </div> {% endcomment %}
+
+            <!-- <div class="t">
+              <span>
+                <a href="https://paca25.com/danhsach.php?v=3">
+                  <img src="{% static 'app/images/banner/b2.jpg' %}" alt="1">
+                </a>
+              </span>
+            </div>
+
+            <div class="t">
+              <span>
+                <a href="https://paca25.com/detail.php?sanpham=19">
+                  <img src="{% static 'app/images/banner/b3.jpg' %}" alt="2">
+                </a>
+              </span>
+            </div> -->
+          {% comment %} </ul> {% endcomment %}
+            {% comment %} <i class="fa-duotone fa-angles-right" id="next"></i>
+            <i class="fa-duotone fa-angles-left" id="prev"></i> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock banner_slider %}
+{% block main-content %}
+{% block register %} {% endblock register %}
+<div class="row" style=" width: 100% "> 
+  {%for product in products %}
+  
+  <div class="col-lg-3">
+    <div class="card">
+      <img class="cardtop" src="{{product.ImageURL}}" alt class="imgv">
+      <div class="box-element product">
+        <h6><strong>{{product.name}}</strong></h6>
+        <hr>
+        {% comment %} <button data-product= {{product.id}} data-action = 'add' class="btn btn-outline-success add-btn update-cart">Add to cart </button> {% endcomment %}
+        <a class="btn btn-danger text-uppercase mr-2 px-4 add-btn update-cart" href="{% url 'chitietsp' %}?id={{product.id}}">Xem  </a>
+        {% comment %} <h4 class="giamoi" style="display: inline-block; float:right"><strong>{{product.price|floatformat:3 }}.000đ</strong></h4> {% endcomment %}
+      </div>
+    </div>
+  </div>
+  {% for i in obj %}
+    {% video i.video 'small' %}
+  {% endfor %}
+  {% endfor %}
+</div>
+<br /><br /><br />
+
+{% endblock main-content %}

@@ -1,0 +1,137 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block thongtin %}
+
+<style>
+    .abt {
+        display: flex;
+        justify-content: center;
+        background: white;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .abk {
+        display: flex;
+        flex-direction: column;
+        width: 1300px;
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+    }
+
+    span {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 15px;
+    }
+
+
+    .t1 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .t2 {
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: 700;
+    }
+
+    .apv {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .avs {
+        display: flex;
+        flex-direction: column;
+        
+        width: 48%;
+        margin: 1%;
+        border-radius: 5px;
+    }
+
+    .avs1 {
+        border: 1px solid #cacaca;
+    }
+
+    .avs span {
+        display: flex;
+        justify-content: center;
+    }
+
+    .avsimg {
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    .nb {
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    span a {
+        color: black;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+    }
+</style>
+<div class="abt">
+        <div class="abk">
+            <span class="t1">Hello!</span>
+            <span>Chào mừng bạn đến với kênh truyền hình FPT Play</span>
+            <!--about-->
+            <span class="t2">Về chúng tôi</span>
+            <div class="apv">
+                <div class="avs">
+                    <img src="{% static 'app\images\banner\thongtin1.jpg' %}" class="avsimg">
+                </div>
+                
+                <div class="avs">
+                    <span> FPT Play sở hữu gần 200 kênh truyền hình trong nước và quốc tế. Phát hành lần đầu: 11 tháng 9 năm 2013; 10 năm trước</span>
+                    <span>Bên cạnh đó, kho nội dung FPT Play còn cung cấp các ứng dụng học tập online, rèn luyện thể thao tại nhà, ứng dụng Sự kiện trực tuyến...cho phép người dùng trải nghiệm nhiều nhu cầu: học tập, giải trí, chơi game...trên đa nền tảng thiết bị.</span>
+                    <span>Chúng tôi luôn thực hiện với mục tiêu đặt sự an toàn và trải nghiệm ổn định nhất cho quý khách hàng lên hàng đầu.</span>
+                </div>
+
+            </div>
+            <!--Cam kết-->
+            <span class="t2">Nơi cam kết đáp ứng hiệu quả và an toàn</span>
+            <span>FPT Play là đơn vị thành viên của Công ty cổ phần Viễn thông FPT (FPT Telecom) - một trong những nhà cung cấp dịch vụ Viễn thông và Internet hàng đầu khu vực.</span>
+            <span>Nhờ đó, FPT Play không chỉ có được thế mạnh về hạ tầng, công nghệ mà còn có nguồn nhân lực chất lượng cao.</span>
+            <!--Chúng tôi có ?-->
+            <span class="t2">Nền tảng mạng</span>
+            <span>Youtube: FPT Play Official, FPT Bóng Đá, FPT Bóng Đá Việt</span>
+            <span>Fanpage Facebook: FPT Play. Truyền hình FPT Play, FPT Bóng Đá, FPT Bóng Rổ</span>
+            <span>TikTok: FPT Play, FPT Bóng Đá, FPT Bóng Đá Việt</span>
+            <!--Lịch sử-->
+            <span class="t2">Giải thưởng và vinh danh</span>
+            <!--bbk-->
+            <div class="apv">
+                <div class="avs avs1">
+                    <span class="nb">Năm 2018</span>
+                    <span>Giải thưởng Sao Khuê năm 2018 với Phần mềm hệ thống FTV Lucas Onca.</span>
+                    <span>Giải Doanh nghiệp Truyền hình Tiên tiến do Bộ Thông tin và Truyền thông trao tặng.</span>
+                    <span>Giải thưởng Thành phố thông minh lĩnh vực “Giải pháp ứng dụng cho cộng đồng thông minh”.</span>
+                </div>
+                <div class="avs avs1">
+                    <span class="nb">Năm 2023</span>
+                    <span>Giải thưởng Sao Khuê 2023 thuộc lĩnh vực “Nội dung số và Giải trí điện tử”.</span>
+                    <span>TikTok Awards Vietnam 2023 hạng mục "Media Partner of The Year".</span>
+                    <span>Giải thưởng Tech Awards 2023 lĩnh vực “Nền tảng giải trí Việt xuất sắc”.".</span>
+                </div>
+            </div>
+            <span class="t2">Vấn đề khác</span>
+            <span><a href="">Chính sách bảo mật</a></span>
+            <span><a href="">Chính sách bảo hành</a></span>
+            <!-- <span><a href="">Chính sách bảo hành</a></span> -->
+            
+        </div>
+</div>
+{% endblock thongtin %}

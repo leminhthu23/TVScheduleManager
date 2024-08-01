@@ -1,0 +1,226 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block chitietsp %}
+
+{% comment %} {% load embed_video_tags %} {% endcomment %}
+
+{% for product in products %}
+<style>
+    
+    @media (max-width: 400px){
+        img {
+            width: 100%;
+        }
+    }
+    
+    .fex {
+        display: flex;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        background: black;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+
+    .ndimg {
+        width: 500px;
+        border-radius: 10px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .pk {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .namedf {
+        padding-top: 10px;
+        font-size: 30px;
+        font-weight: 600;
+    }
+
+    .gia {
+        font-size: 17px;
+        font-weight: 600;
+        color: red;
+
+    }
+
+    .loaisp {
+        font-size: 15px;
+        font-weight: 600;
+        color: #125e00
+    }
+
+    .tt {
+        font-size: 15px;
+        font-weight: 600;
+        color: #125e00
+    }
+
+
+    .dvnd {
+        margin-left: 30px;
+    }
+
+    .sax {
+        flex-wrap: wrap;
+    }
+
+    .bor {
+        margin-top: 50px;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-bottom: 10px;
+        width: 85%;
+
+
+    }
+
+    .nds {
+        width: 100%;
+    }
+
+    .nds p{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+</style> 
+<div class="box sax">
+	<div class="kt fex bor">
+	        {% comment %} <div class="dvimg">
+	            <img src="{{product.ImageURL}}" class="ndimg" style="">
+	        
+		        <div class=" text-center"> <img onclick="change_image(this)" src="{{product.ImageURL}}" width="150" height="100"> <img onclick="change_image(this)" src="{{product.ImageURL}}" width="150"> </div>
+		        </div> {% endcomment %}
+                <iframe width="960" height="425" src="https://www.youtube.com/embed/vRdrI71cSb4" frameborder="0" allowfullscreen></iframe>
+                {% comment %} <div class="dvvideo">
+                    <!-- Nhúng video chính -->
+                    <iframe src="{{ Items.VideoURL }}" class="ndvideo" style="width:100%; height:400px;" frameborder="0" allowfullscreen></iframe>
+                    
+                    <div class="text-center">
+                        <!-- Thay đổi các video nhúng khi click -->
+                        <iframe onclick="change_video(this)" src="{{ Items.VideoURL }}" width="150" height="100" frameborder="0" allowfullscreen></iframe>
+                        <iframe onclick="change_video(this)" src="{{ Items.VideoURL }}" width="150" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <script>
+                    function change_video(element) {
+                        var mainVideo = document.querySelector('.dvvideo .ndvideo');
+                        mainVideo.src = element.src;
+                    }
+                </script> {% endcomment %}
+                
+	        <div class="dvnd">
+	            <div class="namesp pk">
+	                <div class="namedf">{{product.name}}</div>
+	            </div>
+	            <!-- <div class="sizes mt-5">
+	                <h6 class="text-uppercase">Size</h6>
+                    
+    	                <label class="radio "> <input type="radio" name = "size" value="S" checked> <span>S</span> </label> 
+    	                <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> 
+    	                <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> 
+    	                <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> 
+    	                <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                    
+	            </div> -->
+	            {% comment %} <div class="tinhtrang pk">
+	                <span class="tt">
+	                    Còn hàng                
+	                </span>
+	            </div>
+	            <div class="giasp pk" style="font-size:23px">Giá: <span class="gia" style="font-size:25px">{{product.price|floatformat:3 }}.000đ</span></div> {% endcomment %}
+
+
+	            <!--Mua Ngay-->
+	            {% comment %} <p>{{product.chitietsp}}</p>
+	            <div class="cart mt-4 align-items-center">
+	                <button data-product= {{product.id}} data-action = "add" class="btn btn-danger text-uppercase mr-2 px-4 add-btn update-cart">Mua </button>
+	                <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i>
+	            </div> {% endcomment %}
+	            
+	        </div>
+	</div>
+	<div class="dnd kt fex ">
+        <div class="nds">
+            <span style="font-size:20px">
+                <strong>Thông tin chương trình</strong>
+            </span>
+            <li>{{product.chitietsp}}</li>
+            <li>{{product.cauhinhsp}}</li>
+        </div>
+	</div>
+    
+</div>
+{% endfor %}
+
+{% comment %} {% for i in obj %}
+    {% video i.video 'small' %}
+   
+<div class="dvvideo">
+    <!-- Nhúng video chính -->
+    <iframe src="{{ obj.VideoURL }}" class="ndvideo" style="width:100%; height:400px;" frameborder="0" allowfullscreen></iframe>
+    
+    <div class="text-center">
+        <!-- Thay đổi các video nhúng khi click -->
+        <iframe onclick="change_video(this)" src="{{ obj.VideoURL }}" width="150" height="100" frameborder="0" allowfullscreen></iframe>
+        <iframe onclick="change_video(this)" src="{{ obj.VideoURL }}" width="150" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    function change_video(element) {
+        var mainVideo = document.querySelector('.dvvideo .ndvideo');
+        mainVideo.src = element.src;
+    }
+</script>
+{% endfor %} {% endcomment %}
+
+<!-- {% for product in products %}
+<div class="container mt-5 ">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="images p-3">
+                            <div class="text-center p-4"> <img id="main-image" src="https://i.imgur.com/Dhebu4F.jpg" width="250" /> </div>
+                            <div class="thumbnail text-center"> <img onclick="change_image(this)" src="https://i.imgur.com/Rx7uKd0.jpg" width="70"> <img onclick="change_image(this)" src="https://i.imgur.com/Dhebu4F.jpg" width="70"> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="product p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                            </div>
+                            <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
+                                <h5 class="text-uppercase">Men's slim fit t-shirt</h5>
+                                <div class="price d-flex flex-row align-items-center"> <span class="act-price">$20</span>
+                                    <div class="ml-2"> <small class="dis-price">$59</small> <span>40% OFF</span> </div>
+                                </div>
+                            </div>
+                            <p class="about">Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.</p>
+                            <div class="sizes mt-5">
+                                <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                            </div>
+                            <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} -->
+{% endblock chitietsp %}
+    
+
+

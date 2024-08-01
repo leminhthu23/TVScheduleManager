@@ -1,0 +1,892 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}
+    	</style>
+		<meta charset="utf-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}
+    	</style>
+		<meta name="viewport" content="width=device-width" ,="" initial-scale="1.0">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<link href="{%static 'app/css/style.css' %}" rel="stylesheet"/>
+		<link href="{%static 'app/css/all.min.css' %}" rel="stylesheet"/>
+		<link href="{%static 'app/css/owl.carousel.min.css' %}" rel="stylesheet"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'app/css/main.css' %}">
+
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    	<script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>		
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>	
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+
+		<script src="{%static 'app/js/s3.js' %}"></script>
+		<script src="{%static 'app/js/all.min.js' %}"></script>
+		<script src="{%static 'app/js/myscript.js' %}"></script>
+
+		<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
+	    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/sharp-solid.css">
+	    <link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&amp;display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&amp;family=Saira+Extra+Condensed:wght@600&amp;display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&amp;display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Playball&amp;display=swap" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@500&amp;display=swap" rel="stylesheet">
+
+		<script type="text/javascript">
+			var user = '{{request.user}}'
+			function getCookie(name) {
+    			let cookieValue = null;
+    			if (document.cookie && document.cookie !== '') {
+        			const cookies = document.cookie.split(';');
+        			for (let i = 0; i < cookies.length; i++) {
+            			const cookie = cookies[i].trim();
+            			// Does this cookie string begin with the name we want?
+            			if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                			cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+               				 break;
+            			}
+        			}
+    			}
+    			return cookieValue;
+			}
+			const csrftoken = getCookie('csrftoken');
+		</script>
+
+		<title>web ban dien thoai</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="">
+
+	<style>
+    
+        @media (max-width: 1480px) {
+    
+        .boxpr {
+        display: none;}}
+        
+        :root {
+            --bg: #d00435;
+            --f: black;
+
+            --bgtb: white;
+            --ftb: black;
+            --border-hd: #f3f3f3;
+
+
+            --bgbox: white;
+            --fbox: black;
+
+
+            --bgbt: white;
+            --fbt: black;
+            --bgs: 0px 10px 10px 0px #e7e7e7;
+
+            --hv: black;
+            --nhv: #545454;
+
+            --bgmenu: red;
+            --fmenu: white;
+            --bgmn: white;
+            --fgia: red;
+            --bgf: white;
+            --bglg: linear-gradient(303deg, rgb(252 255 243) 0%, rgb(202 255 244) 50%, rgb(223 255 216) 100%);
+            --bguser: white;
+            --bgmain: white;
+            --fsale: #ff003d;
+        }
+
+        :root.dark {
+            --bg: black;
+            --f: white;
+
+            --bgtb: #0e0e0e;
+            --ftb: white;
+            --border-hd: #FFD585;
+
+
+            --bgbox: #0e0e0e;
+            --fbox: white;
+
+
+            --bgbt: linear-gradient(140deg, rgb(0 0 0) 0%, rgba(20, 20, 20, 1) 50%, rgb(0 0 0) 100%);
+            --fbt: white;
+            --bgs: 0px 10px 10px 0px black;
+
+            --hv: #efb342;
+            --nhv: #ffffff;
+
+            --bgmenu: linear-gradient(303deg, rgb(255 197 89) 0%, rgb(222 159 40) 50%, rgb(255 198 90) 100%);
+            --fmenu: white;
+            --bgmn: linear-gradient(303deg, rgb(40 26 0) 0%, rgb(0 0 0) 50%, rgb(37 0 53) 100%);
+            --fgia: #ffd380;
+            --bgf: #ffd380;
+            --bglg: linear-gradient(303deg, rgb(134 92 15) 0%, rgb(255 105 105) 50%, rgb(255 185 87) 100%);
+            --bguser: linear-gradient(303deg, rgb(37 37 37) 0%, rgb(29 29 29) 50%, rgb(27 27 27) 100%);
+            --bgmain: linear-gradient(303deg, rgb(37 37 37) 0%, rgb(29 29 29) 50%, rgb(27 27 27) 100%);
+            --fsale: #ffa700;
+
+
+        }
+    </style>
+		<style>
+			.header {
+	            background-color: black;
+    			color: white;
+	            display: flex;
+	            justify-content: space-between;
+	            align-items: center;
+	            padding-left: 10px;
+	            padding-right: 10px;
+	            border-bottom: 1px solid var(--border-hd);
+	        }
+
+	        .l {
+	            display: flex;
+	            align-items: center;
+
+	        }
+
+	        .ab {
+	            display: flex;
+	        }
+			.logo span {
+	            margin: 15px;
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	            font-family: 'Playball',cursive;
+	            font-size: 30px;
+	            color: black;
+	        }
+	        .ad {
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	            margin: 15px;
+			}
+			.ad a {
+	            font-size: 15px;
+	            text-decoration: none;
+	            color: white;
+	            font-family: 'Lexend Deca', sans-serif;
+        	}
+
+        	.ad a:hover {
+            	color: var(--hv);
+        	}
+
+	        .ad input {
+	            border-radius: 20px;
+	            outline: none;
+	            border: 1px solid #707070;
+	            height: 30px;
+	            width: 100px;
+	        }
+		    .pa {
+	            display: flex;
+	        }
+
+			.custom-dropdown {
+				background-color: #333333; /* Màu xám nhạt */
+			}
+			
+
+		</style>
+
+		<style>
+	        .box {
+	            display: flex;
+	            justify-content: center;
+	            width: 100%;
+	        }
+
+	        .kt {
+	            width: 1200px;
+	        }
+
+	        body {
+	            height: 100%;
+	            /*background: var(--bg);
+	            color: var(--f);*/
+				background-color: black;
+    			color: white;
+	            display: flex;
+	            flex-direction: column;
+	        }
+
+	        .sss {
+	            color: var(--f);
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	            border-radius: 5px;
+	            height: 30px;
+	            width: 30px;
+	            text-decoration: none;
+	        }
+
+	        .spt {
+	            font-size: 25px;
+	            font-weight: 600;
+	            padding: 1%;
+	            font-family: 'Lexend Deca', sans-serif;
+	        }
+
+	        .spn {
+	            font-size: 15px;
+	            font-family: 'Roboto', sans-serif;
+	            margin: 1%;
+	            color: var(--nhv);
+	        }
+
+	        .page {
+	            display: flex;
+	            justify-content: center;
+	            padding: 30px;
+	        }
+
+	        .flv {
+	            display: flex;
+	            flex-wrap: wrap;
+	            /*background: var(--bgbox);
+	            color: var(--fbox);*/
+				background-color: black;
+    			color: white;
+	        }
+
+
+	        .cardpl {
+	            font-size: 13px;
+	            font-family: 'Lexend Deca', sans-serif;
+	            padding-top: 5px;
+	        }
+
+	        .cardname {
+	            font-size: 17px;
+	            font-weight: 600;
+	            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	        }
+
+	        .boxcard {
+	            display: flex;
+	            flex-wrap: wrap;
+	        }
+
+	        .card {
+	            display: flex;
+	            flex-direction: column;
+	            width: 18%;
+	            margin: 1%;
+	            border-radius: 5px;
+	            overflow: hidden;
+	            /*background: var(--bgbt);*/
+				background-color: black;
+    			color: white;
+	            box-shadow: var(--bgs);
+	        
+	        }
+
+	        .card a {
+	            text-decoration: none;
+	            color: var(--fbt);
+
+	        }
+
+	        .cardtop {
+	            object-fit: cover;
+	            overflow: hidden;
+	            height: 150px;
+	        }
+
+	        .imgv {
+	            width: 100%;
+	            height: 100%;
+	            object-fit: cover;
+	            overflow: hidden;
+	        }
+
+	        .cardmain {
+	            padding-top: 10px;
+	            padding-left: 20px;
+	            padding-right: 20px;
+	        }
+
+	        .cardbot {
+	            margin-top: auto;
+	            padding-left: 20px;
+	            padding-bottom: 20px;
+	            color: red;
+	        }
+
+	        .giamoi {
+	            color: var(--fgia);
+	            font-size: 20px;
+	            font-weight: 700;
+	            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	        }
+
+	        .giacu {
+	            color: #828282;
+	            font-size: 13px;
+	            font-weight: 600;
+	            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	            text-decoration: line-through;
+	        }
+
+    	</style>
+    	<style>
+	        .br {
+	            display: flex;
+	            justify-content: center;
+	        }
+
+	        .br span {
+	            border: 1px solid var(--border);
+	            border-radius: 20px;
+	            cursor: pointer;
+	            padding-left: 20px;
+	            padding-right: 20px;
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	            margin-top: 20px;
+	            margin-bottom: 20px;
+	            margin-left: 10px;
+	            margin-right: 10px;
+	            font-size: 15px;
+	            color: var(--bor);
+	            font-family: 'Lexend Deca', sans-serif;
+
+	        }
+
+	        .anh {
+	            display: flex;
+	            margin-top: 20px;
+	            margin-bottom: 20px;
+	        }
+
+	        .bimgq {
+	            width: 80%;
+	            border-radius: 5px;
+	            height: auto;
+	            overflow: hidden;
+	        }
+
+	        #slider {
+	            position: relative;
+	            width: 100%;
+	            height: auto;
+	            overflow: hidden;
+	        }
+
+
+	        #slider ul {
+	            display: flex;
+	            position: relative;
+	            list-style: none;
+	            width: 1000%;
+	            height: 100%;
+	            padding: 0;
+	            margin: 0;
+	            transition: all .4s ease;
+	        }
+
+	        .t {
+	            width: calc(100% - 90%);
+	        }
+
+	        #slider ul span {
+	            position: relative;
+	            height: 100%;
+	            float: left;
+	        }
+
+	        #slider ul span img {
+	            width: 100%;
+	            height: auto;
+	            object-fit: cover;
+	        }
+
+	        #slider #prev {
+	            width: 40px;
+	            line-height: 40px;
+	            font-size: 1.5rem;
+	            text-align: center;
+	            text-decoration: none;
+	            position: absolute;
+	            top: 50%;
+	            transform: translateY(-50%);
+	            transition: all 150ms ease;
+	            opacity: 100%;
+	            left: 0px;
+	        }
+
+	        #slider #next {
+	            width: 40px;
+	            line-height: 40px;
+	            font-size: 1.5rem;
+	            text-align: center;
+	            text-decoration: none;
+	            position: absolute;
+	            top: 50%;
+	            transform: translateY(-50%);
+	            transition: all 150ms ease;
+	            opacity: 100%;
+	            right: 0px;
+	        }
+	        .btds {
+	            width: 19%;
+	            margin-right: 1%;
+	            overflow: hidden;
+
+	        }
+	        
+
+	        .av i {
+	            padding-right: 20px;
+	            height: 60px;
+	        }
+
+			.logo img{
+				width: 150px;
+			}
+
+    	</style>
+    	<script>
+	    function setTheme(theme) {
+	        if (theme == 'dark') {
+	            localStorage.removeItem('theme');
+	            loadTheme(null);
+	        } else {
+	            localStorage.setItem('theme', theme);
+	            applyTheme(theme);
+	        }
+	    }
+
+	    function loadTheme(theme) {
+	        theme = localStorage.getItem('theme');
+	        theme ??= (prefersDark.matches) ? 'dark' : 'light';
+	        applyTheme(theme);
+	    }
+
+	    function applyTheme(theme) {
+	        document.documentElement.className = theme;
+	    }
+
+	    window.setTheme = setTheme;
+
+	    loadTheme();
+	</script><style type="text/css" id="operaUserStyle"></style>
+	</head>
+	<body class>
+		<!--Header-->
+		<header class="header">
+			<!-- BT L -->
+			<div class="l">
+				<div class="logo">
+            		<a href="{% url 'home' %}">
+					<img src="https://images.fptplay.net/media/photo/OTT/2024/02/26/1708914022_P5N.png" alt="">
+					</a>
+        		</div>
+        		<div class="ab">
+	                <div class="ad"><a href="{% url 'home' %}">Trang chủ </a></div>
+	                <div class="ad"><a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Thể loại</a>
+	                	<ul class="dropdown-menu custom-dropdown">
+		          		{% for i in categories %}
+		            	<li><a class="dropdown-item" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a></li>
+		            	{% endfor %}
+		          		</ul>
+
+	                </div>
+	                <div class="ad"><a href="{% url 'thongtin' %}">Liên hệ</a></div>
+	                <!-- <div class="ad"><a href="">Liên hệ</a></div> -->
+            	</div>
+        	</div>
+			<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+		  	<div class="container-fluid">
+ -->		    <!-- <a class="navbar-brand" href="{% url 'home' %}">
+		    	<img src="{% static 'app/images/logo.png' %}" width="50" height="50"/>
+		    </a> -->
+		    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+		        <li class="nav-item">
+		          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Trang chủ</a>
+		        </li>
+
+		        <li class="nav-item dropdown">
+		          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		            Sản phẩm
+		          </a>
+		          <ul class="dropdown-menu">
+		          	{% for i in categories %}
+		            <li><a class="dropdown-item" href="{% url 'category' %}?category={{i.slug}}">{{i.name}}</a></li>
+		            {% endfor %}
+		          </ul>
+		        </li>
+
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">Thông tin</a>
+		        </li>
+
+		        <li class="nav-item">
+		          <a class="nav-link" href="#">Liên hệ</a>
+		        </li>
+		      </ul> -->
+		    <!--BT R-->
+	        {% comment %} <div class="l">
+
+	            <!--Hiển thị User & Logout-->
+
+	            <div class="ad">
+	                <a href="{% url 'login' %}">Đăng nhập</a>
+	        	</div>
+		        
+	        </div> {% endcomment %}
+	        <link rel="stylesheet" href="view/css/index.css">
+		      <form class="d-flex" role="search" method =POST action = "{% url 'search' %}">
+		      	{% csrf_token %}
+		        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+		        <button class="btn btn-outline-success" type="submit">Search</button>
+		      </form>
+			  <div class="l">
+
+	            <!--Hiển thị User & Logout-->
+
+	            <div class="ad">
+	                <a href="{% url 'login' %}">Đăng nhập</a>
+	        	</div>
+		        
+	        </div>
+		    
+		    <div class="ad" style ="visibility: {{user_login}}">
+		    	<span>{{request.user}}</span>
+		    	<a href="{% url 'logout' %}"><span>Đăng xuất</span></a>
+				
+		    </div>
+
+		    <!-- <div class="form-inline my-2 my-lg-0" style ="visibility: {{user_not_login}}">
+		        <a class="nav-link" href="{% url 'login' %}">Đăng nhập</a>
+		        <a class="nav-link" href="{% url 'register' %}">Đăng ký</a>
+		    </div>    -->
+		    
+		    {% comment %} <div class="form-inline my-2 my-lg-0">
+		    	<a id='cart-total' >{{cartItems}}</a> 
+
+		    	<a href="{% url 'cart' %}"><img id='cart-icon' src="{% static 'images/cart.png' %}"></a>
+		    	<!-- <p class="top-right" id='cart-total' >{{cartItems}}</p>  -->
+		    	
+		    </div> {% endcomment %}
+		
+		</header>
+	<!--Main body-->
+	{% block banner_slider %}{% endblock banner_slider %}
+	{% block main-content %} {% endblock main-content %}
+	{% block thongtin %} {% endblock thongtin %}
+	<!-- chi tiết sản phẩm -->
+	{% block chitietsp %} {% endblock chitietsp %}
+	<!-- giao diện cart -->
+	{% block cart_content %} {% endblock cart_content %}
+	<!-- giao diện checkout -->
+	{% block content_checkout %} {% endblock content_checkout %}
+	{% block register %} {% endblock register %}
+		<!-- <div class="box s">
+		    <div class="kt">
+		        <div class="anh">
+		            <div class="btds">
+		                <div class="sphot" id="hot">
+		                    <div class="av vr">
+		                        <i class="fa-sharp fa-solid fa-bars"></i>
+		                        <div>Danh sách danh mục</div>
+		                    </div>
+		                    <a href="danhsach.php?v=2">
+		                        <div class="av">
+		                            <i class="fa-brands fa-youtube">
+		                            </i>
+		                            YouTube
+		                        </div>
+		                    </a>
+
+		                    <a href="danhsach.php?v=3">
+		                        <div class="av">
+		                            <i class="fa-brands fa-discord">
+		                            </i>
+		                            Discord Nitro
+		                        </div>
+		                    </a>
+
+		                    <a href="danhsach.php?v=4">
+		                        <div class="av">
+		                            <i class="fa-brands fa-xbox">
+		                            </i>
+		                            Xbox Game Pass</div>
+		                    </a>
+
+		                    <a href="danhsach.php?v=5">
+		                        <div class="av">
+		                            <i class="fa-solid fa-film-simple">
+		                            </i>
+		                            NETFLIX
+		                        </div>
+		                    </a>
+
+		                    <a href="danhsach.php?v=6">
+		                        <div class="av">
+		                            <i class="fa-brands fa-steam">
+		                                
+		                            </i>
+		                            Steam Wallet
+		                        </div>
+		                    </a>
+
+		                    <a href="danhsach.php?v=7">
+		                        <div class="av">
+		                            <i class="fa-duotone fa-wifi" "="">
+		                            </i>
+		                            VPN
+		                        </div>
+		                    </a>
+		                </div>
+		            </div>
+		            <div class="bimgq">
+		                <div id="slider">
+		                    <ul id="slideWrap" style="left: -3355px;">
+		                        <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/detail.php?sanpham=25">
+		                                    <img src="view/products/pr/uploads/1675662997_gpt.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                                <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/danhsach.php?v=3">
+		                                    <img src="view/products/pr/uploads/1675660082_G2.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                                <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/">
+		                                    <img src="view/products/pr/uploads/1675221204_@ALPACA.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                                <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/">
+		                                    <img src="view/products/pr/uploads/1674112081_pacatet.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                                <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/danhsach.php?v=3">
+		                                    <img src="view/products/pr/uploads/1673095021_dis.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                                <div class="t">
+		                            <span>
+		                                <a href="https://paca25.com/detail.php?sanpham=19">
+		                                    <img src="view/products/pr/uploads/1673084595_VASD.png" alt="">
+		                                </a>
+		                            </span>
+		                        </div>
+
+		                                            </ul>
+		                    <i class="fa-duotone fa-angles-right" id="next"></i>
+		                    <i class="fa-duotone fa-angles-left" id="prev"></i>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div> -->
+		<!-- <style>
+	        .sphot::-webkit-scrollbar {
+	            width: 3px;
+	        }
+
+	        .sphot::-webkit-scrollbar-track {
+	            border-top-right-radius: 10px;
+	            border-bottom-right-radius: 10px;
+	            background-color: black;
+	        }
+
+	        .sphot::-webkit-scrollbar-thumb {
+	            background: linear-gradient(303deg, rgb(0 0 0) 0%, rgb(82 38 255) 50%, rgb(0 0 0) 100%);
+	            border-top-right-radius: 10px;
+	            border-bottom-right-radius: 10px;
+	        }
+
+	        .sphot {
+	            height: 100%;
+	            background: var(--bgmn);
+	            border-radius: 5px;
+	            overflow-y: scroll;
+
+	        }
+
+	        #hot::-webkit-scrollbar {
+	            display: hidden;
+	        }
+
+	        .sphot a {
+	            text-decoration: none;
+	        }
+
+
+	        .av {
+	            display: flex;
+	            align-items: center;
+	            height: 6%;
+	            padding-left: 20px;
+	            font-size: 13px;
+	            font-weight: bold;
+	            color: var(--f);
+
+	        }
+
+	        .vr {
+	            background: var(--bgmenu);
+	            color: var(--fmenu);
+	        }
+	    </style> -->
+	<!--footer-->
+	<!-- <footer class="container-fluid bg-success text-center fixed-bottom p-2 mt-5">  -->
+	<!-- <footer>
+		<div class="card">
+		  <div class="card-body">
+		    This is some text within a card body.
+		  </div>
+		</div>		
+	</footer> -->
+<style>
+    .ftflex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gtc {
+        font-size: 16px;
+        font-weight: 700;
+        padding-top: 30px;
+        padding-bottom: 15px;
+    }
+
+    .gtn {
+        font-size: 14px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .gtn a {
+        text-decoration: none;
+        color: var(--ftb);
+    }
+
+    .boxgt {
+        border-top: 1px solid var(--border-hd);
+        /*background: var(--bgtb);
+        color: var(--ftb);*/
+		background-color: black;
+    	color: white;
+        margin-top: auto;
+    }
+
+    .icon a {
+        text-decoration: none;
+        color: var(--ftb);
+    }
+</style>
+<div class="box boxgt">
+    <div class="kt ftflex">
+        <div class="gt">
+            <div class="gtc">Giới thiệu</div>
+            {% comment %} <div class="gtn"><a href="{% url 'thongtin' %}">Giới thiệu về T&T Store</a></div> {% endcomment %}
+            <div class="gtn">Chính sách bảo mật</div>
+            <div class="gtn">Trung tâm hỗ trợ </div>
+        </div>
+        <div class="hd">
+            <div class="gtc">Hướng dẫn</div>
+            <div class="gtn">Hướng dẫn xem phim</div>
+            <div class="gtn">Hướng dẫn truy cập</div>
+        </div>
+        <div class="support">
+            <div class="gtc">Liên hệ &amp; Hỗ trợ</div>
+            <div class="gtn"><a href="{% url 'thongtin' %}">Facebook</a></div>
+            <div class="gtn"><a href="{% url 'thongtin' %}">Discord</a></div>
+        </div>
+        <div class="follow">
+            <div class="gtc">Follow US</div>
+            <div class="icon">
+                <a href="{% url 'thongtin' %}"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="{% url 'thongtin' %}"><i class="fa-brands fa-discord"></i></a>
+                <i class="fa-brands fa-square-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+    @media (max-width: 1480px) {
+    
+    .boxpr {
+        display: none;
+    }
+    }</style>
+    <link rel="stylesheet" href="view/css/mobi.css">
+</div>
+ <!-- <footer id="footer"><!--Footer
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="companyinfo">
+							<h2><span>Giới thiệu </span></h2>
+							<p>Giới thiệu về T&T store</p>
+							<p>Chính sách bảo mật</p>
+							<p>Chính sách bảo hành</p>
+						</div>
+					</div>
+					
+					<div class="col-sm-4">
+						<div class="huongdan">
+							<!-- <img src="images/home/map.png" alt="" /> -->
+							<!-- <h2><span>Hướng dẫn </span></h2>
+							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+				</div>
+			</div>
+		</div>
+		
+	</footer> --><!--/Footer-->
+
+	<!-- <script src="{%static 'app/js/cart.js' %}"></script> --> 
+
+	</body> 
+</html>
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+<body>
+	{% block register %}
+  
+  <div class="row" style=" width: 117% "> 
+  {%for product in keys %}
+  <div class="col-lg-3">
+    
+    <img class="thumbnail" src="{{product.ImageURL}}">
+    <div class="box-element product">
+      <h6><strong>{{product.name}}</strong></h6>
+      <hr>
+      
+      <a class="btn btn-danger text-uppercase mr-2 px-4 add-btn update-cart" href="{% url 'chitietsp' %}">View </a>
+      {% comment %} <h4 style="display: inline-block; float:right"><strong>${{product.price | floatformat:3}}</strong></h4> {% endcomment %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+	{% endblock register %}
+
+</body>
+</html>
